@@ -3,6 +3,7 @@ export const KpiData = {
   averageTrustScore: 0.84,
   totalFlags: 23,
   estimatedCostWasted: 14.50,
+  activeAgents: 24,
 };
 
 export const TrustTrendData = [

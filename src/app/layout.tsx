@@ -1,10 +1,18 @@
+import {ClerkProvider} from "@clerk/nextjs";
+import { shadcn } from "@clerk/ui/themes";
 import type { Metadata } from "next";
-import { Viga, JetBrains_Mono } from "next/font/google";
+import { Viga, JetBrains_Mono, Outfit } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const viga = Viga({
   weight: "400",
   variable: "--font-viga",
+  subsets: ["latin"],
+});
+
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
 });
 
@@ -18,7 +26,7 @@ export const metadata: Metadata = {
   description: "Does your agent do what it says? Trust-auditing dashboard for AI agents.",
 };
 
-import { Grain } from "@/components/ui/grain";
+
 
 export default function RootLayout({
   children,
@@ -28,12 +36,14 @@ export default function RootLayout({
   return (
       <html
         lang="en"
-        className={`${viga.variable} ${jetbrainsMono.variable} h-full antialiased dark`}
+        className={`${viga.variable} ${outfit.variable} ${jetbrainsMono.variable} h-full antialiased dark`}
       >
         <body className="min-h-full flex flex-col bg-background text-foreground">
-        <Grain />
-        {children}
-      </body>
+          <ClerkProvider appearance={{ theme: shadcn }}>
+            {children}
+            <Toaster position="bottom-right" theme="dark" />
+          </ClerkProvider>
+        </body>
     </html>
   );
 }

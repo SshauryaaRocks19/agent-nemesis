@@ -42,12 +42,12 @@ export default function LandingPage() {
     <div className="flex flex-col min-h-screen">
       
       {/* SECTION 1: HERO (DARK) */}
-      <section className="w-full min-h-[90vh] flex flex-col justify-end px-6 md:px-12 pb-12 pt-32 relative overflow-hidden bg-background">
+      <section className="w-full h-screen flex flex-col justify-end px-6 md:px-12 pb-16 pt-24 relative overflow-hidden bg-background">
         {/* Background layer */}
         <div className="absolute inset-0 z-0 pointer-events-none" style={{ willChange: 'transform', transform: 'translateZ(0)' }}>
           <div style={{ width: '100%', height: '100%', position: 'relative' }}>
             <ColorBends
-              colors={["#6366F1", "#8B5CF6", "#0B0F19"]}
+              colors={["#6366F1", "#8B5CF6", "#0B0F19"] as any}
               rotation={90}
               speed={0.2}
               scale={1}
@@ -61,7 +61,8 @@ export default function LandingPage() {
               bandWidth={6}
               transparent
               autoRotate={0}
-              color="#8B5CF6"
+              className=""
+              style={{}}
             />
           </div>
         </div>

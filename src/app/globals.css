@@ -1,15 +1,16 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import '@clerk/ui/themes/shadcn.css';
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-viga);
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono);
-  --font-heading: var(--font-viga);
+  --font-heading: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -170,11 +171,27 @@
 
 /* Layered Poppy Text Effect */
 .text-poppy-outline {
+  font-family: var(--font-viga), system-ui, sans-serif;
   color: #FFFFFF;
   text-shadow: 6px 6px 0px #6366F1;
 }
 
 .text-poppy-outline-sm {
+  font-family: var(--font-viga), system-ui, sans-serif;
   color: #FFFFFF;
   text-shadow: 3px 3px 0px #6366F1;
+}
+
+.sidebar-active {
+  @apply bg-indigo-500/15 border-l-2 border-indigo-500 text-white;
+}
+
+@keyframes pulse-live {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+}
+
+.animate-pulse-live {
+  animation: pulse-live 2s infinite;
 }

@@ -9,10 +9,13 @@ from agents.support_bot.telemetry import get_tracer
 from .agents import run_planner, run_researcher, run_writer
 
 
+import httpx
+
 def make_client():
     return OpenAI(
         api_key=os.environ["GEMINI_API_KEY"],
         base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
+        http_client=httpx.Client(),
     )
 
 
