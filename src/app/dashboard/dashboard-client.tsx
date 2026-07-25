@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis, BarChart, Bar, Cell } from "recharts";
 import { KpiData, TrustTrendData, FlagBreakdownData, RecentConversations } from "@/lib/mock-data";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ArrowUpRight, ArrowRight, ShieldAlert, AlertTriangle, CheckCircle2, Activity, Users, ShieldCheck, DollarSign } from "lucide-react";
 import { cn } from "@/lib/utils";
 import NumberTicker from "@/components/ui/number-ticker";
@@ -16,6 +17,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { toast } from "sonner";
 
 export default function DashboardOverview({ initialData = [] }: { initialData: any[] }) {
+  const router = useRouter();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
@@ -271,7 +273,11 @@ export default function DashboardOverview({ initialData = [] }: { initialData: a
             </TableHeader>
             <TableBody>
               {displayRecent.map((row) => (
-                <TableRow key={row.id}>
+                <TableRow 
+                  key={row.id} 
+                  className="cursor-pointer hover:bg-muted/50 transition-colors"
+                  onClick={() => router.push(`/dashboard/conversations/${row.id}`)}
+                >
                   <TableCell className="font-mono text-xs">{row.id}</TableCell>
                   <TableCell className="font-medium">{row.agent}</TableCell>
                   <TableCell>
