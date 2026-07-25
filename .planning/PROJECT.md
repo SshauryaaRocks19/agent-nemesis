@@ -28,6 +28,21 @@ Before either side writes analysis or instrumentation code, a strict OpenTelemet
 - A consistent session/conversation ID attribute across all spans.
 - Multi-agent identifiers indicating the named agent (planner/researcher/writer) and its input/output boundaries.
 
+## AI Discretion Policy
+
+This is a hackathon where AI-assisted development is not prohibited but is looked down upon by judges. All code, comments, commit messages, and documentation written with AI assistance must be reviewed and rewritten to read as natural, human-authored work before committing.
+
+**Practical rules for both persons:**
+- No excessive inline comments. Humans don't comment every line.
+- No AI-telltale phrasing in comments (e.g., "This function handles...", "We need to ensure that...", "It's important to note...").
+- Variable and function names should be practical and slightly imperfect — not exhaustively descriptive.
+- Commit messages should be short and natural (`fix refund edge case`, not `fix: handle edge case in process_refund tool with comprehensive error handling`).
+- No over-engineered error handling on first pass. Humans add that incrementally.
+- Code structure should feel built up organically, not laid out all at once.
+- Remove any docstrings that read like they were auto-generated. Keep ones that would genuinely help a human reader.
+
+**The bar:** If a judge skimmed the git diff and thought "this reads like ChatGPT wrote it," that's a problem. If they thought "this looks like two people hacking something together under time pressure," that's correct.
+
 ## Requirements
 
 ### Validated
