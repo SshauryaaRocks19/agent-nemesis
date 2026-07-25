@@ -47,7 +47,7 @@ export default function LandingPage() {
         <div className="absolute inset-0 z-0 pointer-events-none" style={{ willChange: 'transform', transform: 'translateZ(0)' }}>
           <div style={{ width: '100%', height: '100%', position: 'relative' }}>
             <ColorBends
-              colors={["#111111", "#1a1a1a", "#0B0B0B"]}
+              colors={["#6366F1", "#8B5CF6", "#0B0F19"]}
               rotation={90}
               speed={0.2}
               scale={1}
@@ -61,7 +61,7 @@ export default function LandingPage() {
               bandWidth={6}
               transparent
               autoRotate={0}
-              color="#333333"
+              color="#06B6D4"
             />
           </div>
         </div>
@@ -143,15 +143,15 @@ export default function LandingPage() {
         </h2>
       </section>
 
-      {/* SECTION 3: FEATURES (LIGHT BEIGE) */}
+      {/* SECTION 3: FEATURES (LIGHT CONTRAST) */}
       <section 
         ref={beigeSectionRef}
-        className="w-full py-32 px-6 md:px-12 text-[#111111] z-10 relative"
-        style={{ backgroundColor: "var(--color-beige)" }}
+        className="w-full py-32 px-6 md:px-12 z-10 relative"
+        style={{ backgroundColor: "var(--foreground)", color: "var(--background)" }}
       >
         <div className="max-w-[1400px] mx-auto">
           <TextReveal>
-            <h2 className="text-sm font-mono uppercase tracking-widest mb-16 border-b border-[#111111]/20 pb-4">
+            <h2 className="text-sm font-mono uppercase tracking-widest mb-16 border-b border-black/10 pb-4">
               Core Capabilities
             </h2>
           </TextReveal>
@@ -167,7 +167,7 @@ export default function LandingPage() {
                   </h3>
                 </TextReveal>
                 <TextReveal delay={0.2}>
-                  <p className="text-xl font-medium leading-relaxed max-w-md text-[#333333]">
+                  <p className="text-xl font-medium leading-relaxed max-w-md opacity-80">
                     Agents get stuck calling the same tool repeatedly without making progress. We detect cyclical tool usage and flag it before your API costs explode.
                   </p>
                 </TextReveal>
@@ -193,7 +193,7 @@ export default function LandingPage() {
                   </h3>
                 </TextReveal>
                 <TextReveal delay={0.2}>
-                  <p className="text-xl font-medium leading-relaxed max-w-md text-[#333333]">
+                  <p className="text-xl font-medium leading-relaxed max-w-md opacity-80">
                     An agent states something as fact without invoking a tool to check. We cross-reference final output with trace history to ensure cryptographic proof of work.
                   </p>
                 </TextReveal>
@@ -209,7 +209,7 @@ export default function LandingPage() {
                   </h3>
                 </TextReveal>
                 <TextReveal delay={0.2}>
-                  <p className="text-xl font-medium leading-relaxed max-w-md text-[#333333]">
+                  <p className="text-xl font-medium leading-relaxed max-w-md opacity-80">
                     The agent claims to have executed an action but never dispatched the request. We trace intent vs execution to ensure reliability.
                   </p>
                 </TextReveal>
