@@ -60,7 +60,7 @@ export default function SettingsPage() {
                 <Separator className="my-4" />
                 <div className="space-y-2">
                   <label className="text-sm font-medium">SigNoz API URL</label>
-                  <Input defaultValue="https://glad-guppy.us2.signoz.cloud" type="url" className="max-w-md bg-background font-mono text-sm" />
+                  <Input defaultValue="https://your-signoz-instance.signoz.cloud" type="url" className="max-w-md bg-background font-mono text-sm" />
                   <p className="text-xs text-muted-foreground">The endpoint for fetching OpenTelemetry traces.</p>
                 </div>
               </CardContent>

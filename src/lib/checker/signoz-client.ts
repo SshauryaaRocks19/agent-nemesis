@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const SIGNOZ_API_URL =
-  process.env.SIGNOZ_API_URL || "https://glad-guppy.us2.signoz.cloud";
+  process.env.SIGNOZ_API_URL || "https://your-signoz-instance.signoz.cloud";
 const SIGNOZ_API_KEY = process.env.SIGNOZ_API_KEY;
 
 const hdrs = () => ({

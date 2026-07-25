@@ -80,7 +80,7 @@ export default function DemoAgentsPage() {
         </CardHeader>
         <CardContent>
           <p className="text-sm text-emerald-400/80">
-            Traces are being sent to <strong>glad-guppy.us2.signoz.cloud</strong>. Click a "Trigger Trace" 
+            Traces are being sent to <strong>your configured SigNoz instance</strong>. Click a "Trigger Trace" 
             button above — the agent will run, emit OTel spans to SigNoz, then the Checker will 
             automatically pull them and populate the Conversations dashboard.
           </p>
