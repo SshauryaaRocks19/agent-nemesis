@@ -71,17 +71,20 @@ The system catches four specific AI agent failure modes by reading real OpenTele
 
 The system has three parts:
 - **Demo Agents** ← **YOUR HALF** (Person A)
-- **Checker** ← Person B's half
+- **Checker** ← Person B's half — **already being built in parallel**
 - **Dashboard** ← Person B's half
+
+> **Important:** Person B is building the Checker at the same time as you build the agents. This means the attribute names and span structure in `TELEMETRY_CONTRACT.md` are not up for debate — the Checker code will be written against them. Your instrumentation must match exactly, or the Checker will silently produce wrong results.
 
 ---
 
 ## Step 4 — Read the Planning Docs
 
-You have been given the following files from the `.planning/` folder. Read them all before writing any code:
+You have been sent the following files. Read them all before writing any code:
 
 | File | Why you need it |
 |------|----------------|
+| `PERSON_A_ONBOARDING.md` | This file — the prompt you pasted |
 | `PROJECT.md` | Full project vision, team structure, and AI discretion policy |
 | `REQUIREMENTS.md` | All requirements — yours are R05–R15 |
 | `ROADMAP.md` | The 5-phase plan and parallel track structure |
@@ -240,17 +243,17 @@ Communicate your sign-off to Person B before moving past Phase 0.
 
 Your immediate next steps are:
 
-1. **Read all the `.planning/` docs** (especially `TELEMETRY_CONTRACT.md`)
-2. **Sign off on the telemetry contract** with Person B
-3. **Confirm SigNoz and Supabase credentials** are shared
-4. **Set up your Python project** with the OTEL SDK
-5. **Build the Support Bot first** — get one working conversation into SigNoz with correct attributes
-6. **Verify in SigNoz** that `gen_ai.conversation.id` and all required attributes are visible on the trace before building more
+1. **Read all the files you've been sent** (especially `TELEMETRY_CONTRACT.md`)
+2. **Confirm the telemetry contract** with Person B — go through the sign-off checklist and message them your answers to the 5 open questions. Person B is already writing Checker code against these attribute names, so this step is time-sensitive.
+3. **Confirm shared credentials** — SigNoz ingestion key, SigNoz API key, Supabase URL and anon key
+4. **Set up your Python project** with the OTEL SDK (see `STACK.md` for exact packages)
+5. **Build the Support Bot first** — get one working conversation into SigNoz with all the correct attributes visible in the trace explorer before building more
+6. **Verify in SigNoz** that `gen_ai.conversation.id` appears on every span and `gen_ai.content.completion` appears as a span event on LLM calls
 7. **Build the Multi-Agent Pipeline**
-8. **Script the 4 broken test conversations**
-9. **Tell Person B** when Phase 1 is done so they can run real data through the Checker
+8. **Script the 4 broken test conversations** (one per failure mode, for the demo Proof page)
+9. **Tell Person B** when you have live conversations flowing into SigNoz so they can run the real Checker against them
 
-For GSD workflow commands, use:
+For GSD workflow commands:
 - `/gsd-discuss 1` — to capture your implementation decisions for Phase 1 before planning
 - `/gsd-plan 1` — to research and plan your Phase 1 tasks in detail
 - `/gsd-execute 1` — to execute the planned tasks with atomic git commits
