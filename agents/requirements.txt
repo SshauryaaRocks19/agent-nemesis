@@ -1,0 +1,5 @@
+openai>=1.0
+opentelemetry-sdk
+opentelemetry-api
+opentelemetry-exporter-otlp-proto-grpc
+python-dotenv
