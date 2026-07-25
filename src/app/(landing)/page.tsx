@@ -61,7 +61,7 @@ export default function LandingPage() {
               bandWidth={6}
               transparent
               autoRotate={0}
-              color="#06B6D4"
+              color="#8B5CF6"
             />
           </div>
         </div>
@@ -69,7 +69,7 @@ export default function LandingPage() {
         {/* Content layer */}
         <div className="w-full relative z-10">
           <TextReveal>
-            <h1 className="text-[12vw] md:text-[14vw] font-heading font-extrabold tracking-[-0.06em] leading-[0.8] uppercase select-none">
+            <h1 className="text-[12vw] md:text-[14vw] font-heading font-extrabold tracking-[-0.06em] leading-[0.8] uppercase select-none text-poppy-outline">
               AGENT<br/>NEMESIS
             </h1>
           </TextReveal>

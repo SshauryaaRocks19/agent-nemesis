@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Manrope, JetBrains_Mono } from "next/font/google";
+import { Viga, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const viga = Viga({
+  weight: "400",
+  variable: "--font-viga",
   subsets: ["latin"],
 });
 
@@ -25,11 +26,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${manrope.variable} ${jetbrainsMono.variable} h-full antialiased dark`}
-    >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <html
+        lang="en"
+        className={`${viga.variable} ${jetbrainsMono.variable} h-full antialiased dark`}
+      >
+        <body className="min-h-full flex flex-col bg-background text-foreground">
         <Grain />
         {children}
       </body>

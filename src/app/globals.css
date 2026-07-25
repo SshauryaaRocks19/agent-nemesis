@@ -7,9 +7,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-manrope);
+  --font-sans: var(--font-viga);
   --font-mono: var(--font-jetbrains-mono);
-  --font-heading: var(--font-manrope);
+  --font-heading: var(--font-viga);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -166,4 +166,15 @@
 
 .animate-marquee-vertical {
   animation: marquee-vertical var(--duration) linear infinite;
+}
+
+/* Layered Poppy Text Effect */
+.text-poppy-outline {
+  color: #FFFFFF;
+  text-shadow: 6px 6px 0px #6366F1;
+}
+
+.text-poppy-outline-sm {
+  color: #FFFFFF;
+  text-shadow: 3px 3px 0px #6366F1;
 }
