@@ -89,6 +89,7 @@ You have been sent the following files. Read them all before writing any code:
 | `REQUIREMENTS.md` | All requirements — yours are R05–R15 |
 | `ROADMAP.md` | The 5-phase plan and parallel track structure |
 | `STATE.md` | Current project state and immediate next steps |
+| `config.json` | GSD workflow settings — place this in `.planning/config.json` |
 | `research/SUMMARY.md` | Fast-read overview of all research |
 | `research/STACK.md` | Verified tech stack for your subsystem (Python, OTEL, SigNoz) |
 | `research/TELEMETRY_CONTRACT.md` | **THE MOST IMPORTANT DOC — read this carefully** |
