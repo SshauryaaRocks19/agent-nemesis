@@ -39,7 +39,7 @@ export async function fetchSpansForConversation(conversationId: string) {
           spec: {
             name: "A",
             signal: "traces",
-            limit: 200,
+            limit: 1000,
             offset: 0,
             // v5 filter uses a top-level expression — omit operator wrapper, pass items
             // filter key is typed; no operator/items wrapper at top level

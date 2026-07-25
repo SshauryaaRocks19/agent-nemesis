@@ -4,11 +4,19 @@ import { saveConversationResult, ConversationResult } from "./supabase-client";
 
 export async function analyzeConversation(conversationId: string) {
   try {
-    // 1. Fetch from SigNoz
-    const rawSpans = await fetchSpansForConversation(conversationId);
+    // 1. Fetch from SigNoz with retry logic to handle ingestion delay
+    let rawSpans = [];
+    let attempts = 0;
+    while (attempts < 6) {
+      rawSpans = await fetchSpansForConversation(conversationId);
+      if (rawSpans && rawSpans.length > 0) break;
+      attempts++;
+      console.log(`No spans found for ${conversationId}, retrying... (${attempts}/6)`);
+      await new Promise(resolve => setTimeout(resolve, 2000));
+    }
     
     if (!rawSpans || rawSpans.length === 0) {
-      console.log(`No spans found for conversation ${conversationId}`);
+      console.log(`Failed to find spans for conversation ${conversationId} after retries.`);
       return null;
     }
 
