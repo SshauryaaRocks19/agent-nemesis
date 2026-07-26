@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: agentnemesis-python-backend
+    env: python
+    rootDir: agents
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: OTEL_SERVICE_NAME
+        value: agent-nemesis-demo
+      - key: OTEL_EXPORTER_OTLP_ENDPOINT
+        value: https://ingest.us2.signoz.cloud:443
+      - key: OTEL_EXPORTER_OTLP_HEADERS
+        sync: false
