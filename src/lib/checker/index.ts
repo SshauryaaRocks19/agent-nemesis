@@ -49,9 +49,9 @@ export async function analyzeConversation(conversationId: string) {
     // Rough estimate for gemini-2.5-flash ($0.075 per 1M input, $0.30 per 1M output)
     const tokenCostUsd = (inputTokens / 1_000_000 * 0.075) + (outputTokens / 1_000_000 * 0.30);
 
-    const minTimestamp = Math.min(...spans.map((s: any) => s.timestamp));
-    const maxTimestamp = Math.max(...spans.map((s: any) => s.timestamp));
-    const durationMs = (maxTimestamp - minTimestamp) / 1000; // Assuming SigNoz timestamps are in microseconds
+    const minTimestamp = Math.min(...spans.map((s: any) => new Date(s.timestamp).getTime()));
+    const maxTimestamp = Math.max(...spans.map((s: any) => new Date(s.timestamp).getTime()));
+    const durationMs = maxTimestamp - minTimestamp;
 
     // 5. Construct result
     const result: ConversationResult = {
