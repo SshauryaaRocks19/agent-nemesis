@@ -24,7 +24,10 @@ export default function DemoAgentsPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ demoId })
       });
-      if (!res.ok) throw new Error("Failed to run demo");
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || "Failed to run demo");
+      }
       toast.success("Agent executed! Traces sent to SigNoz.");
     } catch (e: any) {
       toast.error(e.message);
